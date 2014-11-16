@@ -22,7 +22,7 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            all: ["dist", ".tmp"]
+            all: ["dist"]
         },
         compass: {                  // Task
             dist: {                   // Target
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
             files: ['app/components/**/*.*', 'app/app.js', 'Gruntfile.js'],
             tasks: ['default'],
             options: {
-                livereload: true,
+                livereload: true
             }
         },
         copy: {
@@ -62,7 +62,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['clean', 'compass', 'bower_concat', 'concat', 'copy']);
+    grunt.registerTask('default', ['compass', 'bower_concat', 'clean', 'concat', 'copy']);
     grunt.registerTask('dev', ['default', 'watch']);
 
 };

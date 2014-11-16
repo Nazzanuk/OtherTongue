@@ -1,0 +1,17 @@
+[screen="button"] {
+  .button {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    background: $primary;
+    z-index: 7;
+    border-radius: 100px;
+    color: white;
+    cursor: pointer;
+  }
+}

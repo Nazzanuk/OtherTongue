@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Other Tongue</title>
+
+    <link href="app.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Exo+2:700,600,200,800,300,400,500,100,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-app="otherTongue">
+
+<div class="container">
+    <div place="groups"></div>
+
+</div>
+
+<div screen="button" ng-controller="buttonCtrl">
+    <div class="button">
+        <div class="fa fa-plus"></div>
+    </div>
+
+</div>
+
+<div screen="groups" ng-controller="groupsCtrl">
+    <div class="groups">
+        <h1>Groups</h1>
+
+        <div class="row">
+            <div class="col-sm-12" ng-repeat="group in DataService.groups track by $index">
+                <div class="box group">
+                    <div class="lines pull-left">{{group.lines.length}}</div>
+                    {{group.name}}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<div screen="header" ng-controller="headerCtrl">
+    <div class="header">
+        <div class="menu-button fa fa-bars pull-left" ng-click="NavService.toggleMenu()"></div>
+        Other Tongue
+    </div>
+
+</div>
+
+<div screen="sidebar" ng-controller="sidebarCtrl">
+    <div class="sidebar">
+        <div class="menu">
+            <div class="menu-item {{$index == NavService.screenIndex ? 'active' : ''}}"
+                 ng-repeat="screen in NavService.screens track by $index"
+                 ng-click="NavService.screenIndex = $index"
+                    >
+                <i class="fa fa-{{screen.icon}} fa-fw"></i>
+                {{screen.name}}
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" ng-click="NavService.toggleMenu(false)"></div>
+
+</div>
+
+    <script src="bower.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

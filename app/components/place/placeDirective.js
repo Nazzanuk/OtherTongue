@@ -7,7 +7,8 @@ app.directive('place', function ($compile, $rootScope) {
     return {
         restrict: 'AE',
         link: function (scope, elem, attrs) {
-            var $screen = $("[screen='" + attrs.screen + "']");
+            var $screen = $("[screen='" + attrs.place + "']");
+            console.log(attrs, $screen);
             $screen.insertBefore($(elem));
             $(elem).remove();
             $compile($screen)(scope);

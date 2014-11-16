@@ -1,5 +1,16 @@
 <div screen="sidebar" ng-controller="sidebarCtrl">
     <div class="sidebar">
+        <div class="menu">
+            <div class="menu-item {{$index == NavService.screenIndex ? 'active' : ''}}"
+                 ng-repeat="screen in NavService.screens track by $index"
+                 ng-click="NavService.screenIndex = $index"
+                    >
+                <i class="fa fa-{{screen.icon}} fa-fw"></i>
+                {{screen.name}}
+            </div>
+        </div>
     </div>
+
+    <div class="overlay" ng-click="NavService.toggleMenu(false)"></div>
 
 </div>

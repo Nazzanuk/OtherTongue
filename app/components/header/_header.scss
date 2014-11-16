@@ -1,20 +1,27 @@
 [screen="header"] {
   .header {
-    height: 40px;
-    line-height: 40px;
+    z-index: 10;
+    height: 45px;
+    line-height: 45px;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     color: white;
     background: $primary;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
+    font-size: 24px;
+    font-weight: 200;
+    text-align: center;
 
     .menu-button {
-      width: 40px;
+      width: 45px;
       cursor: pointer;
       text-align: center;
       display: inline-block;
-      line-height: 40px;
+      line-height: 45px;
+      color: rgba(255,255,255,0.8);
+      font-size: 18px;
 
     }
   }

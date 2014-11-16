@@ -1,8 +1,36 @@
 $dark: #333;
-$primary: #285c80;
+$primary: #63a20b;
+
+body {
+  padding-top: 45px;
+  background: #eee;
+}
+
+body, input, textarea {
+  font-family: 'Exo 2', sans-serif;
+}
 
 [screen] {
   display: inline;
+}
+
+
+h1, h2, h3, p {
+  margin: 0 0 10px;
+}
+
+h1, h2, h3 {
+  font-weight: 200;
+  margin: 0 0 30px;
+}
+
+
+.box {
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 2.5px 0 rgba(0,0,0,0.1);
+  padding: 15px;
+  margin: 0 0 30px;
 }
 
 @font-face {
