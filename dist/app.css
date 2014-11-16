@@ -8005,34 +8005,34 @@ button.close {
 }
 
 
-/* line 4, ../app/components/global/_global.scss */
+/* line 6, ../app/components/global/_global.scss */
 body {
   padding-top: 45px;
   background: #eee;
 }
 
-/* line 9, ../app/components/global/_global.scss */
+/* line 11, ../app/components/global/_global.scss */
 body, input, textarea {
   font-family: 'Exo 2', sans-serif;
 }
 
-/* line 13, ../app/components/global/_global.scss */
+/* line 15, ../app/components/global/_global.scss */
 [screen] {
   display: inline;
 }
 
-/* line 18, ../app/components/global/_global.scss */
+/* line 20, ../app/components/global/_global.scss */
 h1, h2, h3, p {
   margin: 0 0 10px;
 }
 
-/* line 22, ../app/components/global/_global.scss */
+/* line 24, ../app/components/global/_global.scss */
 h1, h2, h3 {
   font-weight: 200;
   margin: 0 0 30px;
 }
 
-/* line 28, ../app/components/global/_global.scss */
+/* line 30, ../app/components/global/_global.scss */
 .box {
   background: #ffffff;
   border-radius: 5px;
@@ -8058,7 +8058,7 @@ h1, h2, h3 {
   left: 0;
   right: 0;
   color: white;
-  background: #63a20b;
+  background: #428fcc;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   font-size: 24px;
   font-weight: 200;
@@ -8100,16 +8100,21 @@ h1, h2, h3 {
   cursor: pointer;
 }
 /* line 22, ../app/components/sidebar/_sidebar.scss */
-[screen="sidebar"] .sidebar .menu .menu-item:hover, [screen="sidebar"] .sidebar .menu .menu-item.active {
+[screen="sidebar"] .sidebar .menu .menu-item:hover {
   background: #eee;
-  color: #63a20b;
+  color: #ccb244;
 }
 /* line 27, ../app/components/sidebar/_sidebar.scss */
+[screen="sidebar"] .sidebar .menu .menu-item.active {
+  background: #eee;
+  color: #428fcc;
+}
+/* line 32, ../app/components/sidebar/_sidebar.scss */
 [screen="sidebar"] .sidebar .menu .menu-item .fa {
   line-height: 45px;
   margin-right: 10px;
 }
-/* line 35, ../app/components/sidebar/_sidebar.scss */
+/* line 40, ../app/components/sidebar/_sidebar.scss */
 [screen="sidebar"] .overlay {
   background: rgba(0, 0, 0, 0.2);
   position: fixed;
@@ -8131,7 +8136,7 @@ h1, h2, h3 {
   right: 20px;
   bottom: 20px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-  background: #63a20b;
+  background: #89cc5e;
   z-index: 7;
   border-radius: 100px;
   color: white;
@@ -8151,7 +8156,7 @@ h1, h2, h3 {
 /* line 9, ../app/components/groups/_groups.scss */
 [screen="groups"] .groups .group .lines {
   border-radius: 100px;
-  background: #63a20b;
+  background: #ccb244;
   color: white;
   width: 30px;
   line-height: 30px;
@@ -8159,4 +8164,14 @@ h1, h2, h3 {
   text-align: center;
   font-weight: 700;
   font-size: 16px;
+}
+
+/* line 2, ../app/components/train/_train.scss */
+[screen="train"] .train {
+  margin: 30px 0;
+}
+/* line 5, ../app/components/train/_train.scss */
+[screen="train"] .train .question {
+  background: #428fcc;
+  color: #ffffff;
 }

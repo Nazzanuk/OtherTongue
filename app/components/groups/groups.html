@@ -4,7 +4,7 @@
 
         <div class="row">
             <div class="col-sm-12" ng-repeat="group in DataService.groups track by $index">
-                <div class="box group">
+                <div class="box group" ng-click="DataService.groupIndex = $index">
                     <div class="lines pull-left">{{group.lines.length}}</div>
                     {{group.name}}
                 </div>

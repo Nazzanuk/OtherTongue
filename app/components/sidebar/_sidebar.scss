@@ -19,7 +19,12 @@
         font-weight: 600;
         cursor: pointer;
 
-        &:hover, &.active {
+        &:hover {
+          background: #eee;
+          color: $secondary;
+        }
+
+        &.active {
           background: #eee;
           color: $primary;
         }
