@@ -1,11 +1,14 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
+
+
+    require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         bower_concat: {
             all: {
-                dest: 'dist/bower.js',
-                cssDest: 'dist/bower.css',
+                dest: '.tmp/bower.js',
+                cssDest: '.tmp/bower.css',
                 exclude: [],
                 dependencies: {
                     'underscore': 'jquery',
@@ -18,48 +21,48 @@ module.exports = function(grunt) {
                 }
             }
         },
+        clean: {
+            all: ["dist", ".tmp"]
+        },
+        compass: {                  // Task
+            dist: {                   // Target
+                options: {              // Target options
+                    sassDir: 'app',
+                    cssDir: '.tmp'
+                }
+            }
+        },
         concat: {
             options: {
                 separator: '\n\n'
             },
             basic_and_extras: {
                 files: {
-                    'dist/app.js': ['app/components/app.js','app/components/**/*.js'],
-                    'dist/index.html': ['app/head.html','app/app.html','app/foot.html']
+                    'dist/app.js': ['app/app.js', 'app/components/**/*.js'],
+                    'dist/bower.js': ['.tmp/bower.js'],
+                    'dist/index.html': ['app/head.html', 'app/app.html', 'app/components/**/*.html', 'app/foot.html'],
+                    'dist/app.css': ['.tmp/bower.css', '.tmp/app.css']
                 }
             }
         },
-        //qunit: {
-        //    files: ['test/**/*.html']
-        //},
-        //jshint: {
-        //    files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
-        //    options: {
-        //        // options here to override JSHint defaults
-        //        globals: {
-        //            jQuery: true,
-        //            console: true,
-        //            module: true,
-        //            document: true
-        //        }
-        //    }
-        //},
         watch: {
-            files: ['app/**/*.*', 'Gruntfile.js'],
-            tasks: ['default']
+            files: ['app/components/**/*.*', 'app/app.js', 'Gruntfile.js'],
+            tasks: ['default'],
+            options: {
+                livereload: true,
+            }
+        },
+        copy: {
+            main: {
+                files: [
+                    {expand: true, cwd: 'app/bower-components/fontawesome/fonts', src: ['**/*.*'], dest: 'dist/fonts/'},
+
+                ]
+            }
         }
     });
 
-    //grunt.loadNpmTasks('grunt-contrib-uglify');
-    //grunt.loadNpmTasks('grunt-contrib-jshint');
-    //grunt.loadNpmTasks('grunt-contrib-qunit');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-bower-concat');
-
-    //grunt.registerTask('test', ['jshint', 'qunit']);
-
-    grunt.registerTask('default', ['bower_concat','concat']);
+    grunt.registerTask('default', ['clean', 'compass', 'bower_concat', 'concat', 'copy']);
     grunt.registerTask('dev', ['default', 'watch']);
 
 };

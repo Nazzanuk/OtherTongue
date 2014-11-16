@@ -1,0 +1,21 @@
+[screen="header"] {
+  .header {
+    height: 40px;
+    line-height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    background: $primary;
+
+    .menu-button {
+      width: 40px;
+      cursor: pointer;
+      text-align: center;
+      display: inline-block;
+      line-height: 40px;
+
+    }
+  }
+}
