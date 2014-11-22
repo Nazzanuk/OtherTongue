@@ -18,23 +18,24 @@ app.service('DataService', function () {
     var that = this;
 
     that.user = [
-        {'name':'Nathan'}
+        {'name': 'Nathan'}
     ];
 
     that.groups = [
         {
-            'name':'Basic',
-            'lines':[
-                {'spanish': ['Mañana', 'Tomorrow1', 'Tomorrow2'],'english':['Tomorrow', 'Tomorrow1', 'Tomorrow2']},
-                {'spanish': ['Hoy'],'english':['Today']},
-                {'spanish': ['Niño'],'english':['Boy']}
+            'name': 'Basic',
+            'lines': [
+                {'spanish': ['Mañana'], 'english': ['Tomorrow']},
+                {'spanish': ['Hoy'], 'english': ['Today']},
+                {'spanish': ['Niño', 'Chico'], 'english': ['Boy']},
+                {'spanish': ['Niños', 'Chicos'], 'english': ['Boys', 'Kids', 'Children']}
             ]
         },
         {
-            'name':'Past Tense',
-            'lines':[
-                {'spanish': ['tuvé'],'english':['I had']},
-                {'spanish': ['tenía'],'english':['I used to have']}
+            'name': 'Past Tense',
+            'lines': [
+                {'spanish': ['tuvé'], 'english': ['I had']},
+                {'spanish': ['tenía'], 'english': ['I used to have']}
             ]
         }
     ];
@@ -45,7 +46,7 @@ app.service('DataService', function () {
     that.language = 'spanish';
 
     that.generateLine = function () {
-        that.lineIndex = _.random(0, that.groups[that.groupIndex].length);
+        that.lineIndex = _.random(0, that.groups[that.groupIndex].lines.length - 1);
         that.phraseIndex = _.random(0, that.groups[that.groupIndex].lines[that.lineIndex][that.language].length - 1);
         //that.language = _.random(0,1, that.groups[that.groupIndex][that.lineIndex]);
     };
@@ -98,9 +99,18 @@ app.service('NavService', function () {
     that.screens = [
         {name: 'Home', icon: 'home'},
         {name: 'Favourites', icon: 'star'},
-        {name: 'Test', icon: 'star'}
+        {name: 'train', icon: 'star'},
+        {name: 'groups', icon: 'star'}
     ];
     that.screenIndex = 0;
+
+    that.setScreen = function (index) {
+        $('[screen="' + that.screens[that.screenIndex].name + '"]').velocity("transition.fadeOut", {duration: 400});
+        that.screenIndex = index;
+        $('[screen="' + that.screens[that.screenIndex].name + '"]').velocity("transition.fadeIn", {duration: 400});
+        that.menuVisible = false;
+        that.animateMenu();
+    };
 
     that.toggleMenu = function (flag) {
         if (flag != undefined) that.menuVisible = flag;
@@ -110,8 +120,8 @@ app.service('NavService', function () {
 
     that.animateMenu = function () {
         if (that.menuVisible) {
-            $('[screen="sidebar"] .sidebar').velocity("transition.slideLeftBigIn", { duration: 400 });
-            $('[screen="sidebar"] .sidebar .menu-item').velocity("transition.slideUpIn", { stagger: 250, drag: true });
+            $('[screen="sidebar"] .sidebar').velocity("transition.slideLeftBigIn", {duration: 400});
+            $('[screen="sidebar"] .sidebar .menu-item').velocity("transition.slideUpIn", {stagger: 250, drag: true});
             $('[screen="sidebar"] .overlay').velocity("transition.fadeIn");
         } else {
             $('[screen="sidebar"] .sidebar').velocity("transition.slideLeftBigOut");

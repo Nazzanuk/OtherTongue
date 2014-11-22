@@ -10,12 +10,18 @@ body {
 
 body, input, textarea {
   font-family: 'Exo 2', sans-serif;
+  line-height: 18px;
 }
 
 [screen] {
   display: inline;
+  position: absolute;
 }
 
+.content [screen] {
+  display: none;
+  width: 100%;
+}
 
 h1, h2, h3, p {
   margin: 0 0 10px;
@@ -26,6 +32,12 @@ h1, h2, h3 {
   margin: 0 0 30px;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
 
 .box {
   background: #ffffff;

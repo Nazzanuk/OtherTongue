@@ -1,17 +1,20 @@
 <div screen="groups" ng-controller="groupsCtrl">
-    <div class="groups">
-        <h1>Groups</h1>
+    <div class="container">
+        <div class="groups">
+            <h1>Groups</h1>
 
-        <div class="row">
-            <div class="col-sm-12" ng-repeat="group in DataService.groups track by $index">
-                <div class="box group" ng-click="DataService.groupIndex = $index">
-                    <div class="lines pull-left">{{group.lines.length}}</div>
-                    {{group.name}}
+            <div class="row">
+                <div class="col-sm-12" ng-repeat="group in DataService.groups track by $index">
+                    <div class="box group" ng-click="DataService.groupIndex = $index">
+                        <div class="lines pull-left">{{group.lines.length}}</div>
+                        {{group.name}}
+                    </div>
                 </div>
             </div>
+
+
         </div>
-
-
     </div>
+
 
 </div>

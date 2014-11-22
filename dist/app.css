@@ -8014,25 +8014,41 @@ body {
 /* line 11, ../app/components/global/_global.scss */
 body, input, textarea {
   font-family: 'Exo 2', sans-serif;
+  line-height: 18px;
 }
 
-/* line 15, ../app/components/global/_global.scss */
+/* line 16, ../app/components/global/_global.scss */
 [screen] {
   display: inline;
+  position: absolute;
 }
 
-/* line 20, ../app/components/global/_global.scss */
+/* line 21, ../app/components/global/_global.scss */
+.content [screen] {
+  display: none;
+  width: 100%;
+}
+
+/* line 26, ../app/components/global/_global.scss */
 h1, h2, h3, p {
   margin: 0 0 10px;
 }
 
-/* line 24, ../app/components/global/_global.scss */
+/* line 30, ../app/components/global/_global.scss */
 h1, h2, h3 {
   font-weight: 200;
   margin: 0 0 30px;
 }
 
-/* line 30, ../app/components/global/_global.scss */
+/* line 35, ../app/components/global/_global.scss */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+/* line 42, ../app/components/global/_global.scss */
 .box {
   background: #ffffff;
   border-radius: 5px;
@@ -8174,4 +8190,23 @@ h1, h2, h3 {
 [screen="train"] .train .question {
   background: #428fcc;
   color: #ffffff;
+}
+/* line 10, ../app/components/train/_train.scss */
+[screen="train"] .train .answer {
+  width: 100%;
+  color: #428fcc;
+  border: none;
+}
+/* line 16, ../app/components/train/_train.scss */
+[screen="train"] .train .next {
+  background: #89cc5e;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
+}
+/* line 24, ../app/components/train/_train.scss */
+[screen="train"] .train .next:hover {
+  background: #6ebc3b;
 }

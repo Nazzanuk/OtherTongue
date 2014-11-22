@@ -1,11 +1,15 @@
 <div screen="train" ng-controller="trainCtrl">
-    <div class="train">
-        <h1>Training: {{DataService.getGroup().name}}</h1>
+    <div class="container">
+        <div class="train">
+            <h1>Training: {{DataService.getGroup().name}}</h1>
 
-        <div class="box question">{{DataService.phraseIndex}} {{DataService.getLine()}}</div>
-        <div class="box"></div>
+            <div class="box question">{{DataService.getLine()}}</div>
+            <input class="box answer" type="text"/>
+            <div class="box next">Done</div>
 
 
+        </div>
     </div>
+
 
 </div>
